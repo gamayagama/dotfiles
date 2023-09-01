@@ -1,0 +1,12 @@
+show=drun
+width=30%
+lines=7
+allow_images=true
+image_size=20
+allow_markup=true
+term=kitty
+prompt=
+no_actions=true
+hide_scroll=true
+matching=fuzzy
+insensitive=true

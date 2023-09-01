@@ -1,0 +1,121 @@
+{
+
+//////////////////////// Bar configurations //
+////////////////////////
+
+    "layer": "top",
+    "position": "top",
+    "spacing": 2,
+
+///////////////////
+// Apply modules //
+///////////////////
+
+    "modules-center": ["clock"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-right": ["pulseaudio", "backlight", "network", "custom/notification", "battery", "custom/power"],
+
+///////////////////////////
+// Module configurations //
+///////////////////////////
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "persistent_workspaces": {
+            "*": 9 // Show all 9 workspaces
+        }
+    },
+
+    "network": {
+        	"format-wifi": "&#8195;{signalStrength}%",
+        	"format-disconnected": "󰤮",
+            "tooltip": false,
+            "on-click": "kitty nmtui"
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%A, %B %d, %Y (%R)}",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "calendar": {
+                    "mode"          : "month",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "left",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#E1DFE4'><b>{}</b></span>",
+                              "weeks":      "<span color='#E38ADD'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#B7A0E9'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                    }
+        },
+        "actions":  {
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+        }
+    },
+
+    "pulseaudio": {
+        "format": "{icon}&#8195;{volume}%",
+        "format-bluetooth": "&#8194;{icon}&#8195;{volume}%",
+        "format-muted": "",
+        "format-icons": {
+            "default": ["", "", ""]
+        },
+        "scroll-step": 1,
+        "on-click": "pavucontrol",
+        "on-click-right": "blueman-manager",
+        "ignored-sinks": ["Easy Effects Sink"]
+    },
+
+    "backlight": {
+        "tooltip": false,
+        "device": "intel_backlight",
+        "format": "{icon}&#8194;{percent}%",
+        "format-icons": ["", ""]
+    },
+
+    "battery": {
+        "states": {
+        "good": 95,
+        "warning": 30,
+        "critical": 15
+        },
+        "format": "{icon}&#8194;{capacity}%",
+        "format-alt": "{icon}&#8195;{time}",
+        "format-charging": "󰂄&#8195;{capacity}%",
+        "format-plugged": "󰂄&#8195;{capacity}%",
+        "format-full": "󱈑 {capacity}%",
+        "format-icons": ["󱊡", "󱊢", "󱊣"]
+    },
+    
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}&#8194;{}",
+        "format-icons": {
+            "notification": "<span foreground='red'><sup></sup></span>",
+            "none": "",
+            "dnd-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-none": "",
+            "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "inhibited-none": "",
+            "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+            "dnd-inhibited-none": ""
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.1; swaync-client -t -sw",
+        "on-click-right": "swaync-client -d -sw",
+        "escape": true
+    },
+
+    "custom/power": {
+        "tooltip": false,
+        "format": "⤬",
+        "on-click": "wlogout"
+	}
+}
