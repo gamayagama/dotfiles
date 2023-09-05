@@ -137,5 +137,7 @@ require("lazy").setup({
         },
         build = ':TSUpdate',
     },
+
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
 })
 

@@ -10,6 +10,7 @@ g.maplocalleader = ' '
 
 -- Imports --
 require("plugins")
+require("bubbles")
 
 -- General settings --
 g.loaded_netrw = 1
@@ -25,13 +26,12 @@ opt.shiftwidth = 4
 opt.softtabstop = 0
 opt.swapfile = false
 opt.showmode = false
+o.clipboard = 'unnamedplus'
 
 -- Theming --
 opt.termguicolors = true
 o.background = "dark"
--- g.seoul256_background = 234
--- g.seoul256_srgb = 1
--- cmd [[silent! colorscheme seoul256]]
+cmd [[silent! colorscheme catppuccin-mocha]]
 
 -- g.lightline = {
 --     colorscheme = 'seoul256'
