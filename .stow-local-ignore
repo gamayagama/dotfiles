@@ -3,5 +3,8 @@
 
 .bin
 
+.zcompdump
+.histfile
+
 README.*
 LICENSE.*
